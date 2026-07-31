@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figure 3 — Genome Structure &amp; Candidate Stress Genes, HS2 vs. ALE</title>
+<style>
+:root{
+  --ink:#141414; --ink-soft:#3a3a3a; --ink-faint:#767676;
+  --paper:#ffffff; --line:#141414; --line-faint:#bdbdbd;
+  --accent:#a3231b;
+  --fill-product:#f2f2f2;
+  --serif: "Times New Roman", Times, "Georgia", serif;
+  --sans: Arial, Helvetica, "Liberation Sans", sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#e8e8e6; color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased;}
+.page{max-width:1180px; margin:0 auto; padding:36px 20px 60px;}
+.sheet{background:var(--paper); border:1px solid #d2d2d0; padding:40px 48px 34px; box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+
+.journal-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:22px;}
+.journal-name{font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);}
+.journal-meta{font-family:var(--sans); font-size:11px; color:var(--ink-faint);}
+
+.fig-label{font-family:var(--sans); font-size:13px; font-weight:700; color:var(--ink); margin-bottom:2px;}
+h1{font-family:var(--sans); font-weight:700; font-size:16.5px; line-height:1.35; margin:0 0 22px; color:var(--ink); max-width:92ch;}
+h1 i{font-style:italic;}
+
+.diagram-frame{border:1px solid var(--line-faint); padding:6px;}
+.diagram-scroll{overflow-x:auto; overflow-y:hidden;}
+.diagram-scroll svg{display:block; min-width:1200px;}
+
+.inset-row{display:flex; gap:40px; align-items:flex-start; margin-top:26px; padding-top:20px; border-top:1px solid var(--line-faint); flex-wrap:wrap;}
+.inset-block{flex:0 0 auto;}
+.inset-title{font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:8px;}
+
+.caption{margin-top:26px; padding-top:16px; border-top:1px solid var(--line-faint); font-family:var(--serif); font-size:13px; line-height:1.62; color:var(--ink-soft); text-align:justify;}
+.caption b{color:var(--ink); font-weight:700;}
+.caption .drop{font-weight:700; color:var(--ink);}
+
+.methods-note{margin-top:16px; font-family:var(--sans); font-size:10.5px; color:var(--ink-faint); line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="page">
+<div class="sheet">
+
+  <div class="journal-head">
+    <div class="journal-name">Comparative Genomics &amp; Strain Engineering</div>
+    <div class="journal-meta">Working figure &middot; 2026-07-31</div>
+  </div>
+
+  <div class="fig-label">Figure 3</div>
+  <h1>Genome structure and candidate hydrolysate-stress genes in <i>Chlorella</i> sp. HS2 and its laboratory-evolved derivative ALE. No transcriptome/expression data exists for this strain pair; the figure summarizes genome-assembly, duplication, and variant-calling evidence in the same evidence-tiered convention used for the <i>Schizochytrium</i> HS6 figures.</h1>
+
+  <div class="diagram-frame">
+  <div class="diagram-scroll">
+<svg viewBox="0 0 2016 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Genome structure and candidate stress genes comparing Chlorella HS2 and ALE">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink)"/>
+    </marker>
+    <marker id="ahRed" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="ahGrey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink-faint)"/>
+    </marker>
+  </defs>
+
+  <text x="0" y="10" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">A</text>
+  <text x="18" y="10" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">ASSEMBLY, DUPLICATION &amp; HETEROZYGOSITY — HS2 (PARENTAL) vs. ALE (EVOLVED)</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="24" width="300" height="120" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="150" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">HS2 (parental)</text>
+    <text x="12" y="62" font-size="10.5" fill="var(--ink)">66.64 Mb &middot; 327 contigs</text>
+    <text x="12" y="78" font-size="10.5" fill="var(--ink)">N50 947.6 kb &middot; BUSCO 98.9%</text>
+    <text x="12" y="94" font-size="10.5" fill="var(--ink)">BUSCO duplicated: 14.9%</text>
+    <text x="12" y="118" font-size="10.5" font-weight="700" fill="var(--ink)">Heterozygosity: 0.0036%</text>
+    <text x="12" y="134" font-size="9" fill="var(--ink-faint)">(~1 site / 27,500 bp; directly measured)</text>
+
+    <rect x="380" y="24" width="300" height="120" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="530" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">ALE (evolved)</text>
+    <text x="392" y="62" font-size="10.5" fill="var(--ink)">64.50 Mb &middot; 239 contigs</text>
+    <text x="392" y="78" font-size="10.5" fill="var(--ink)">N50 1,329.9 kb &middot; BUSCO 99.1%</text>
+    <text x="392" y="94" font-size="10.5" fill="var(--ink)">BUSCO duplicated: 10.1%</text>
+    <text x="392" y="118" font-size="10.5" fill="var(--ink-faint)">Heterozygosity: not independently</text>
+    <text x="392" y="134" font-size="10.5" fill="var(--ink-faint)">re-measured; assumed comparable</text>
+  </g>
+
+  <text x="760" y="70" text-anchor="middle" font-family="Arial" font-size="10.5" font-style="italic" fill="var(--ink)">collinear at whole-genome scale</text>
+  <text x="760" y="86" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-faint)">dnadiff synteny, strong diagonal</text>
+  <line x1="304" y1="84" x2="376" y2="84" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+
+  <g font-family="Arial">
+    <rect x="0" y="176" width="680" height="126" fill="none" stroke="var(--accent)" stroke-width="2"/>
+    <text x="16" y="198" font-size="12" font-weight="700" fill="var(--accent)">Duplicated content: real. Heterozygosity: essentially none.</text>
+    <text x="16" y="218" font-size="10.5" fill="var(--ink)">Elevated BUSCO duplication + ~25–30% gap vs. independent k-mer size</text>
+    <text x="16" y="234" font-size="10.5" fill="var(--ink)">estimate + specific large-scale duplicate blocks (self-alignment) all</text>
+    <text x="16" y="250" font-size="10.5" fill="var(--ink)">point to real duplicated sequence — but at 30–300× lower divergence</text>
+    <text x="16" y="266" font-size="10.5" fill="var(--ink)">between copies than a typical outcrossing diploid (0.1–1%).</text>
+    <text x="16" y="288" font-size="9.5" font-style="italic" fill="var(--ink-soft)">Three coexisting mechanisms: repeat-rich embedded patches &middot; a dispersed repeat family &middot; ≥ 1 clean 224 kb duplicate pair (ALE)</text>
+  </g>
+
+  <line x1="0" y1="330" x2="2000" y2="330" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="358" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">B</text>
+  <text x="18" y="358" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">MUTATIONAL LANDSCAPE, ALE vs. HS2 — TWO INDEPENDENT METHODS</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="372" width="330" height="162" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="165" y="392" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">Read-based joint genotyping</text>
+    <text x="12" y="414" font-size="10.5" fill="var(--ink)">378 SNVs/indels (151 SNP, 227 indel)</text>
+    <text x="12" y="430" font-size="10.5" fill="var(--ink)">237 PASS systematic QC (depth + contig-edge)</text>
+    <text x="12" y="446" font-size="10.5" fill="var(--ink)">141 flagged</text>
+    <rect x="12" y="460" width="200" height="14" fill="var(--fill-product)" stroke="var(--ink)" stroke-width="1"/>
+    <rect x="12" y="460" width="132" height="14" fill="var(--ink)"/>
+    <text x="222" y="471" font-size="9.5" fill="var(--ink-faint)">237/378 PASS</text>
+    <text x="12" y="500" font-size="10.5" fill="var(--ink)">Structural variants: 26 unique loci</text>
+    <text x="12" y="516" font-size="10.5" font-weight="700" fill="var(--accent)">only 2/26 confirmed by both callers</text>
+
+    <rect x="380" y="372" width="330" height="162" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="545" y="392" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">Whole-genome alignment</text>
+    <text x="392" y="414" font-size="10.5" fill="var(--ink)">523 SNPs / 6,079 indels, genome-wide</text>
+    <text x="392" y="430" font-size="10.5" fill="var(--ink)">209 SNPs / 2,819 indels in highest-</text>
+    <text x="392" y="446" font-size="10.5" fill="var(--ink)">confidence 1-to-1 aligned regions</text>
+    <text x="392" y="470" font-size="9.5" font-style="italic" fill="var(--ink-soft)">independent method (assembly-vs-assembly,</text>
+    <text x="392" y="484" font-size="9.5" font-style="italic" fill="var(--ink-soft)">not read mapping) &mdash; same order of magnitude</text>
+    <text x="392" y="498" font-size="9.5" font-style="italic" fill="var(--ink-soft)">as the read-based count, a reassuring</text>
+    <text x="392" y="512" font-size="9.5" font-style="italic" fill="var(--ink-soft)">cross-check between unrelated methods</text>
+  </g>
+
+  <line x1="0" y1="556" x2="2000" y2="556" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="584" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">C</text>
+  <text x="18" y="584" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">CANDIDATE GENES FOR THE HYDROLYSATE-STRESS PHENOTYPE — LEADS, NOT CONFIRMED</text>
+  <text x="18" y="600" font-family="Arial" font-size="9.5" font-style="italic" fill="var(--ink-faint)">ALE was passaged in acid hydrolysate of residual biomass; furanic compounds (e.g. 5-HMF) and salinity are the hypothesized selective pressures</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="618" width="620" height="90" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="16" y="640" font-size="12" font-weight="700" font-style="italic" fill="var(--ink)">PEL1 / SLAD</text>
+    <text x="16" y="656" font-size="10" fill="var(--ink-soft)">ptg000019l:1,297,961 &middot; missense</text>
+    <text x="16" y="672" font-size="10" fill="var(--ink-soft)">category: aldehyde/dehydrogenase</text>
+    <text x="480" y="640" text-anchor="middle" font-size="10" font-weight="700" fill="#B8763A">MODERATE</text>
+
+    <rect x="690" y="618" width="620" height="90" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="706" y="640" font-size="12" font-weight="700" font-style="italic" fill="var(--ink)">ODP25 / EPHA</text>
+    <text x="706" y="656" font-size="10" fill="var(--ink-soft)">ptg000051l:296,388 &middot; missense</text>
+    <text x="706" y="672" font-size="10" fill="var(--ink-soft)">category: dehydrogenase</text>
+    <text x="1170" y="640" text-anchor="middle" font-size="10" font-weight="700" fill="#B8763A">MODERATE</text>
+
+    <rect x="1380" y="618" width="620" height="90" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="1396" y="640" font-size="12" font-weight="700" font-style="italic" fill="var(--ink)">SYGM2 / GLOX</text>
+    <text x="1396" y="656" font-size="10" fill="var(--ink-soft)">ptg000082l:318,837 &middot; <tspan font-weight="700">frameshift</tspan></text>
+    <text x="1396" y="672" font-size="10" fill="var(--ink-soft)">category: aldehyde detoxification</text>
+    <text x="1860" y="640" text-anchor="middle" font-size="10" font-weight="700" fill="var(--accent)">HIGH</text>
+  </g>
+
+  <text x="0" y="736" font-family="Arial" font-size="9.5" font-style="italic" fill="var(--ink-faint)">All three loci fall in the furan/aldehyde-detoxification category (salinity and ABC-transporter categories returned nothing at this search strictness). None have had the individual</text>
+  <text x="0" y="750" font-family="Arial" font-size="9.5" font-style="italic" fill="var(--ink-faint)">coverage/contig-edge sanity check applied yet — the same check that caught an earlier ABC-transporter-tagged frameshift as a pure assembly artifact (8× coverage at a contig edge).</text>
+
+</svg>
+  </div>
+  </div>
+
+  <div class="inset-row">
+    <div class="inset-block" style="max-width:640px;">
+      <div class="inset-title">Symbol key</div>
+      <svg viewBox="0 0 640 90" width="640" height="90">
+        <line x1="0" y1="16" x2="34" y2="16" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah3)"/>
+        <defs><marker id="ah3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink)"/></marker></defs>
+        <text x="42" y="20" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">assembly-level relationship (e.g. whole-genome synteny)</text>
+
+        <rect x="0" y="34" width="34" height="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <text x="42" y="46" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">directly measured, corrected finding (heterozygosity re-derived from raw genotyping)</text>
+
+        <rect x="0" y="60" width="34" height="12" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="42" y="72" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">candidate gene, not yet individually confirmed (leads only)</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="caption">
+    <span class="drop">Figure 3.</span> <b>Genome structure and candidate hydrolysate-stress genes in <i>Chlorella</i> sp. HS2 and its laboratory-evolved derivative ALE.</b>
+    (A) Both strains were assembled de novo from PacBio HiFi long reads to near-complete BUSCO scores and are collinear at the whole-genome scale. Elevated BUSCO duplication rates,
+    a size gap against an independent k-mer estimate, and specific self-alignment duplicate blocks together indicate real duplicated genomic content in both genomes &mdash; but a direct
+    genotyping-based measurement of HS2 heterozygosity (0.0036%, ~1 heterozygous site per 27,500 bp) is 30&ndash;300&times; lower than a typical outcrossing diploid, ruling out the
+    project's original working assumption of a conventional heterozygous diploid genome. The duplicated content instead reflects at least three distinct, coexisting mechanisms
+    (embedded repeat-rich patches, a dispersed repeat family, and at least one clean large-scale duplicate pair), not a single explanation. (B) Two methodologically independent
+    approaches &mdash; read-based joint genotyping against the HS2 reference, and direct whole-genome assembly alignment &mdash; converge on the same order of magnitude for
+    ALE-specific small variants, a meaningful cross-check between unrelated methods. Structural-variant caller concordance is low (2 of 26 unique loci confirmed by both <i>pbsv</i>
+    and Sniffles2), which is typical for SV calling in general and is reported here as a caveat on confidence rather than a pipeline error. (C) Three candidate genes for the
+    hydrolysate-stress phenotype driving ALE's selection &mdash; <i>PEL1/SLAD</i> and <i>ODP25/EPHA</i> (missense, MODERATE impact) and <i>SYGM2/GLOX</i> (frameshift, HIGH impact) &mdash;
+    all fall in the furan/aldehyde-detoxification category, consistent with the furanic compounds (e.g. 5-HMF) hypothesized to be a primary selective pressure in the hydrolysate
+    medium. Unlike the HS6 findings elsewhere in this project, none of these three candidates have yet had the individual coverage/contig-edge sanity check applied that is standard
+    practice in this project's pipeline (the same check that previously caught an ABC-transporter-tagged frameshift as a pure assembly artifact) &mdash; they are reported here as
+    leads under active investigation, not confirmed causal variants. No transcriptome or expression dataset exists for this strain pair, so this figure summarizes genome-assembly
+    and variant-calling evidence only; it is not a metabolic pathway map.
+  </div>
+
+  <div class="methods-note">
+    Assembly: hifiasm 0.25.0 (HiFi, diploid mode), organelle-read-depleted. Variant calling: DeepVariant + GLnexus joint genotyping (read-based), pbsv + Sniffles2 (structural variants),
+    MUMmer4/dnadiff (whole-genome alignment). QC: density filter (±500 bp) then per-variant coverage/contig-edge filter. Heterozygosity: direct genotyping of HS2 reads against the HS2
+    assembly. Full analysis: Chlorella sp. HS2 &times; ALE comparative genomics reports (this site).
+  </div>
+
+</div>
+</div>
+</body>
+</html>
