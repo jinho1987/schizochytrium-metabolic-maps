@@ -253,8 +253,8 @@ h1 i{font-style:italic;}
         <rect x="75" y="21" width="46" height="99" fill="var(--accent)"/>
         <text x="98" y="12" text-anchor="middle" font-family="Arial" font-size="9.5" font-weight="700" fill="var(--accent)">79.5×</text>
         <text x="98" y="136" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">HS6</text>
-        <rect x="160" y="66" width="46" height="54" fill="none" stroke="var(--ink)" stroke-width="1.25"/>
-        <text x="183" y="58" text-anchor="middle" font-family="Arial" font-size="9.5" font-weight="700" fill="var(--ink)">42×</text>
+        <rect x="160" y="67" width="46" height="53" fill="none" stroke="var(--ink)" stroke-width="1.25"/>
+        <text x="183" y="59" text-anchor="middle" font-family="Arial" font-size="9.5" font-weight="700" fill="var(--ink)">42.9×</text>
         <text x="183" y="136" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">#7</text>
       </svg>
     </div>
@@ -284,7 +284,8 @@ h1 i{font-style:italic;}
     are shown above each arrow, derived from reciprocal-best-hit orthology between the two independently PacBio HiFi–assembled genomes (98.9% genome-wide nucleotide identity; see Methods).
     Of the 15 enzymatic steps directly evidenced by the gene panel, 14 are single-copy orthologs at 96.5–100% identity in both strains. The sole exception is mevalonate kinase
     (<i>MVK</i>, g10519, red), which resides on Scaffolds_28 — the one locus in this comparison carrying an independently confirmed 2-fold copy-number duplication specific to HS6
-    (79.5× vs. 42× long-read depth, HS6 vs. #7; genome-wide baseline ≈ 41×, inset). Dashed grey arrows in (C) denote canonical MVA-pathway and downstream isoprenoid steps
+    (79.5× vs. 42.9× long-read depth, HS6 vs. #7 — each strain's own HiFi reads independently self-mapped to its own assembly at the orthologous locus;
+    genome-wide baseline ≈ 41× HS6 / 43× #7, inset). Dashed grey arrows in (C) denote canonical MVA-pathway and downstream isoprenoid steps
     (HMG-CoA reductase, phosphomevalonate kinase, and the sterol/carotenoid branch point) that are biochemically expected but not directly represented among the DEG/orthology panel analyzed in this study.
     (D) A respiratory-chain/ubiquinone module — Complex I (<i>NDUFS4, NDUFS5, NDUFA8, NDUFB7</i>, assembly factors <i>NDUFAF1</i>/<i>NDUFAF3</i>), Complex II (<i>SDHC, SDHAF4</i>), ubiquinone
     biosynthesis (<i>COQ9</i>), and Complex III assembly (<i>UQCC5</i>) — was initially flagged as HS6-specific by the independent, genome-wide KEGG-ortholog comparison. Targeted verification (DIAMOND
@@ -298,7 +299,7 @@ h1 i{font-style:italic;}
   </div>
 
   <div class="methods-note">
-    Orthology: bidirectional DIAMOND blastp, reciprocal best hit. Genome alignment: minimap2 (asm10). Depth: HS6 HiFi reads realigned to the HS6 assembly (map-hifi), strain #7 depth from vendor assembly report.
+    Orthology: bidirectional DIAMOND blastp, reciprocal best hit. Genome alignment: minimap2 (asm10). Depth: each strain's own raw HiFi reads independently realigned to its own assembly (minimap2, map-hifi) and depth measured at the orthologous MVK locus (HS6 Scaffolds_28; #7 contig26, LOCUS_013099) versus that strain's own genome-wide baseline — a symmetric check on both sides, not a comparison against a reported/assumed figure.
     Panel D: independent KEGG orthology (KO) assignment per strain via the KEGG REST API (UniProt → KEGG GENES → KO), compared as presence/absence across the full 3-way KO matrix (3,938 KOs);
     the ten flagged genes were then verified by DIAMOND blastx of the HS6 proteins against the #7 genome (--max-target-seqs 4100) and cross-checked against the #7 MAKER gene models directly.
     Pathway topology follows KEGG reference maps 00061, 00071, 00561, 00900, 00190. Full analysis: HS6 vs. <i>Schizochytrium</i> sp. #7 comparative genomics report.
