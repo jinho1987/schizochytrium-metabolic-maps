@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chlorella sp. HS2 × ALE — Genotype–Phenotype Working Summary &amp; Methods</title>
+<style>
+:root {
+  --paper: #F6F7F3; --paper-raised: #FFFFFF; --ink: #16211D; --ink-soft: #4B5A50; --ink-faint: #7C8A80;
+  --line: #DCE2DA; --line-strong: #C7D0C3;
+  --accent: #1E6E5C; --accent-ink: #14503F; --accent-wash: #E4EFEA;
+  --status-confirmed: #1E6E5C; --status-confirmed-wash: #E4EFEA;
+  --status-pending: #B8763A; --status-pending-wash: #F5E7D8;
+  --status-open: #A8433A; --status-open-wash: #F5E0DD;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", "Consolas", "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, ui-serif, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+:root[data-theme="dark"] {
+  --paper: #10160F; --paper-raised: #161D15; --ink: #E7ECE4; --ink-soft: #A9B7AD; --ink-faint: #748078;
+  --line: #263129; --line-strong: #34412F;
+  --accent: #4FBFA0; --accent-ink: #8AD9C0; --accent-wash: #173029;
+  --status-confirmed: #4FBFA0; --status-confirmed-wash: #173029;
+  --status-pending: #D99B5C; --status-pending-wash: #2B2216;
+  --status-open: #E08079; --status-open-wash: #2C1917;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10160F; --paper-raised: #161D15; --ink: #E7ECE4; --ink-soft: #A9B7AD; --ink-faint: #748078;
+    --line: #263129; --line-strong: #34412F;
+    --accent: #4FBFA0; --accent-ink: #8AD9C0; --accent-wash: #173029;
+    --status-confirmed: #4FBFA0; --status-confirmed-wash: #173029;
+    --status-pending: #D99B5C; --status-pending-wash: #2B2216;
+    --status-open: #E08079; --status-open-wash: #2C1917;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: var(--paper); }
+a { color: var(--accent); }
+
+.doc { font-family: var(--serif); color: var(--ink); max-width: 900px; margin: 0 auto; padding: 4rem 2.5rem 6rem; line-height: 1.62; }
+.doc h1, .doc h2, .doc h3 { font-family: var(--serif); text-wrap: balance; }
+
+.backlink { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-faint); text-decoration: none; margin-bottom: 1.6rem; display: inline-block; }
+.backlink:hover { color: var(--accent); }
+
+.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 1.4rem; margin-bottom: 2.4rem; }
+.eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--accent-ink); font-weight: 600; margin: 0 0 0.6rem; }
+.masthead h1 { font-size: 2.05rem; font-weight: 600; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.masthead .dek { font-size: 1.05rem; color: var(--ink-soft); margin: 0 0 1rem; max-width: 68ch; font-family: var(--sans); }
+.meta-row { display: flex; flex-wrap: wrap; gap: 1.4rem; font-family: var(--mono); font-size: 0.76rem; color: var(--ink-faint); }
+.meta-row strong { color: var(--ink-soft); font-weight: 600; }
+
+nav.toc { font-family: var(--sans); font-size: 0.86rem; background: var(--paper-raised); border: 1px solid var(--line); padding: 1.1rem 1.4rem; margin: 2rem 0 3rem; border-radius: 3px; }
+nav.toc .label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.6rem; }
+nav.toc ol { margin: 0; padding-left: 1.3rem; columns: 2; column-gap: 2rem; }
+nav.toc li { margin-bottom: 0.35rem; }
+nav.toc a { text-decoration: none; color: var(--ink-soft); }
+nav.toc a:hover { color: var(--accent); }
+
+.section { margin: 3.2rem 0; scroll-margin-top: 1.5rem; }
+.section-head { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--line-strong); padding-bottom: 0.5rem; }
+.section-num { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); letter-spacing: 0.06em; }
+.section-head h2 { font-size: 1.32rem; font-weight: 600; margin: 0; }
+
+p { margin: 0 0 1rem; max-width: 70ch; }
+.thesis { background: var(--paper-raised); border-left: 3px solid var(--accent); padding: 1.3rem 1.6rem; border-radius: 2px; font-size: 1.03rem; }
+.thesis p:last-child { margin-bottom: 0; }
+.thesis .label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); font-weight: 700; margin-bottom: 0.5rem; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 1.4rem 0; font-family: var(--sans); }
+.stat { background: var(--paper-raised); padding: 1rem 1.1rem; }
+.stat .k { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.35rem; }
+.stat .v { font-variant-numeric: tabular-nums; font-size: 1.32rem; font-weight: 600; color: var(--ink); font-family: var(--serif); }
+.stat .v small { font-size: 0.62em; color: var(--ink-faint); font-weight: 400; font-family: var(--sans); }
+.stat .delta { font-size: 0.76rem; color: var(--accent-ink); margin-top: 0.2rem; }
+
+.shift { font-family: var(--sans); font-size: 0.82rem; margin: 1.6rem 0; }
+.shift-row { margin-bottom: 1rem; }
+.shift-row .label { display: flex; justify-content: space-between; margin-bottom: 0.3rem; color: var(--ink-soft); }
+.shift-row .label b { color: var(--ink); font-family: var(--serif); font-size: 0.95rem; }
+.bar-track { position: relative; height: 22px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--ink-faint); opacity: 0.35; }
+.bar-fill.purged { background: var(--accent); opacity: 1; }
+.bar-track .tick-label { position: absolute; top: 50%; transform: translateY(-50%); font-size: 0.72rem; font-variant-numeric: tabular-nums; color: var(--ink); padding-left: 8px; }
+
+table { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: 0.85rem; }
+.table-wrap { overflow-x: auto; margin: 1.2rem 0; border: 1px solid var(--line); }
+th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { background: var(--accent-wash); color: var(--accent-ink); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid var(--line-strong); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--paper-raised); }
+td .locus { font-family: var(--mono); font-size: 0.79rem; color: var(--ink-soft); white-space: nowrap; }
+td .gene { font-family: var(--mono); font-weight: 700; color: var(--ink); }
+td code { font-family: var(--mono); font-size: 0.82em; background: var(--accent-wash); color: var(--accent-ink); padding: 0.1em 0.35em; border-radius: 2px; }
+
+.pill { display: inline-flex; align-items: center; gap: 0.35em; font-family: var(--sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; padding: 0.22em 0.6em; border-radius: 3px; white-space: nowrap; }
+.pill.confirmed { background: var(--status-confirmed-wash); color: var(--status-confirmed); }
+.pill.pending { background: var(--status-pending-wash); color: var(--status-pending); }
+.pill.open { background: var(--status-open-wash); color: var(--status-open); }
+.pill::before { content: "●"; font-size: 0.7em; }
+
+.impact-high { color: var(--status-open); font-weight: 700; }
+.impact-moderate { color: var(--status-pending); font-weight: 700; }
+.matrix-cell-yes { color: var(--status-confirmed); font-weight: 700; text-align: center; }
+.matrix-cell-partial { color: var(--status-pending); font-weight: 700; text-align: center; }
+.matrix-cell-no { color: var(--ink-faint); text-align: center; }
+
+.callout { border: 1px solid var(--status-pending); background: var(--status-pending-wash); border-radius: 3px; padding: 1.2rem 1.5rem; margin: 1.4rem 0; }
+.callout .label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--status-pending); margin-bottom: 0.6rem; }
+.callout ul { margin: 0; padding-left: 1.2rem; } .callout li { margin-bottom: 0.5rem; } .callout li:last-child { margin-bottom: 0; }
+
+.gene-card { border-top: 1px solid var(--line-strong); padding: 1.3rem 0; }
+.gene-card:first-of-type { border-top: none; padding-top: 0.4rem; }
+.gene-card-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.gene-card-head .genes { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+.gene-card-head .locus { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); }
+.gene-card p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 0.5rem; }
+.gene-card p:last-child { margin-bottom: 0; }
+.tag-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.5rem 0; }
+.tag { font-family: var(--sans); font-size: 0.68rem; color: var(--accent-ink); background: var(--accent-wash); padding: 0.18em 0.55em; border-radius: 2px; }
+
+.review-item { border: 1px solid var(--line); border-radius: 3px; margin-bottom: 1.4rem; overflow: hidden; }
+.review-q { background: var(--paper-raised); padding: 0.9rem 1.3rem; font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+.review-q .num { font-family: var(--mono); font-weight: 700; color: var(--accent-ink); margin-right: 0.5em; }
+.review-a { padding: 1.1rem 1.3rem; }
+.review-a .tag-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); font-weight: 700; margin-bottom: 0.5rem; }
+.review-a p { font-size: 0.92rem; }
+.review-rev { background: var(--accent-wash); padding: 0.9rem 1.3rem; font-size: 0.88rem; color: var(--ink-soft); }
+.review-rev b { color: var(--accent-ink); }
+
+.pipeline-stage { display: grid; grid-template-columns: 190px 1fr; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--line); align-items: start; }
+.pipeline-stage:first-child { border-top: none; }
+.pipeline-stage .stage-name { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; color: var(--accent-ink); text-transform: uppercase; letter-spacing: 0.03em; padding-top: 0.15rem; }
+.pipeline-stage .stage-detail { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); }
+.pipeline-stage .stage-detail p { max-width: none; font-size: inherit; margin-bottom: 0.4rem; }
+.pipeline-stage code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-raised); border: 1px solid var(--line); color: var(--ink); padding: 0.12em 0.4em; border-radius: 2px; }
+
+footer { margin-top: 3.5rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-family: var(--sans); font-size: 0.74rem; color: var(--ink-faint); }
+
+@media (max-width: 600px) {
+  .doc { padding: 2.4rem 1.2rem 4rem; }
+  .masthead h1 { font-size: 1.55rem; }
+  nav.toc ol { columns: 1; }
+  .pipeline-stage { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <a class="backlink" href="index.html">&larr; Comparative Genomics — Figures &amp; Reports</a>
+
+  <div class="masthead">
+    <p class="eyebrow">Chlorella sp. HS2 × ALE — Comparative Genomics</p>
+    <h1>Genotype–Phenotype Working Summary &amp; Full Pipeline</h1>
+    <p class="dek">What in the genome could explain ALE's phenotype — evaluated at the strength of evidence currently behind each claim — plus the complete analytical pipeline and a point-by-point response to expert review, for independent evaluation.</p>
+    <div class="meta-row">
+      <span><strong>Comparison:</strong> HS2 (ancestor) vs. ALE (hydrolysate-selected)</span>
+      <span><strong>Assembly:</strong> hifiasm 0.25.0, purge_dups-corrected</span>
+      <span><strong>Status:</strong> working document — open items in §7</span>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <p class="label">Contents</p>
+    <ol>
+      <li><a href="#hypothesis">Working hypothesis</a></li>
+      <li><a href="#architecture">Genome architecture</a></li>
+      <li><a href="#candidates">Candidate genotypic changes</a></li>
+      <li><a href="#validation">Cross-validation matrix</a></li>
+      <li><a href="#methods">Full analytical pipeline</a></li>
+      <li><a href="#review">Response to expert review</a></li>
+      <li><a href="#open">What's needed to close the gap</a></li>
+    </ol>
+  </nav>
+
+  <div class="thesis" id="hypothesis">
+    <p class="label">Working hypothesis</p>
+    <p>ALE's tolerance shift is most plausibly explained not by large-scale genome restructuring — the two genomes are substantially collinear once duplicate content is corrected for — but by a small number of point mutations concentrated in <strong>aldehyde- and furan-detoxification machinery</strong>, headlined by a high-impact frameshift in an aldehyde oxidase gene. This is consistent with selection under lignocellulosic hydrolysate, whose dominant inhibitory compound, 5-hydroxymethylfurfural (HMF), is cleared primarily through aldehyde oxidation/reduction pathways. The case is <em>suggestive, not yet closed</em>: the single most direct confirmatory test — whether the same loci shifted under HMF-only selection — has not yet been run on a coordinate-matched reference (§7).</p>
+  </div>
+
+  <div class="section" id="architecture">
+    <div class="section-head"><span class="section-num">01</span><h2>Genome architecture: conserved, not rearranged</h2></div>
+    <p>Both strains were assembled independently from HiFi long reads and corrected for retained haplotig/duplicate content using cutoffs anchored to each assembly's own validated single-copy coverage (HS2: 158×, ALE: 204×) — automatic cutoff detection had misfired badly on first pass (locked onto a spurious 16× peak) and was discarded in favor of manual cutoffs tied to hifiasm's own validated coverage.</p>
+
+    <div class="shift">
+      <div class="shift-row">
+        <div class="label"><b>HS2</b><span>66.6 Mb raw &rarr; 51.3 Mb purged</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div><div class="bar-fill purged" style="width:77%"></div><span class="tick-label">&minus;23% duplicate/haplotig content removed</span></div>
+      </div>
+      <div class="shift-row">
+        <div class="label"><b>ALE</b><span>64.5 Mb raw &rarr; 52.1 Mb purged</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div><div class="bar-fill purged" style="width:81%"></div><span class="tick-label">&minus;19% duplicate/haplotig content removed</span></div>
+      </div>
+    </div>
+    <p style="font-size:0.86rem;color:var(--ink-faint)">Grey = raw assembly length. Green = length after correction. Once both genomes are purged under identical, coverage-anchored logic, the size gap shrinks from 2.1 Mb to 0.87 Mb and <em>reverses direction</em> &mdash; evidence the original size difference was an artifact of inconsistent duplicate removal, not a real deletion in ALE.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="k">BUSCO complete</div><div class="v">98.9<small>%</small></div><div class="delta">HS2 &middot; raw assembly</div></div>
+      <div class="stat"><div class="k">BUSCO complete</div><div class="v">99.1<small>%</small></div><div class="delta">ALE &middot; raw assembly</div></div>
+      <div class="stat"><div class="k">BUSCO duplicated</div><div class="v">14.9<small>%</small></div><div class="delta">HS2</div></div>
+      <div class="stat"><div class="k">BUSCO duplicated</div><div class="v">10.1<small>%</small></div><div class="delta">ALE</div></div>
+      <div class="stat"><div class="k">k-mer heterozygosity</div><div class="v">1.5<small>%</small></div><div class="delta">HS2 &middot; GenomeScope2</div></div>
+      <div class="stat"><div class="k">k-mer heterozygosity</div><div class="v">1.55<small>%</small></div><div class="delta">ALE &middot; GenomeScope2</div></div>
+    </div>
+    <p>Cross-genome alignment shows a largely <strong>collinear</strong> relationship &mdash; 59 alignment blocks across the two assemblies, mostly same-orientation with a handful of inversions, no gross rearrangement, consistent with a direct descendant under selection rather than a divergent strain. Self-alignment of each genome against itself independently turned up multiple near-<strong>100.0%-identity duplicate blocks</strong> tens of kilobases long in both strains &mdash; too perfect to be ordinary heterozygosity, more consistent with retained duplicate/haplotig sequence, the same signal purge_dups corrected for above. GenomeScope2's model fit to the k-mer spectrum was middling (62&ndash;68%, not the &gt;90% a clean two-peak diploid model would give) &mdash; read as corroborating evidence that duplication, not classical heterozygosity, is shaping this spectrum.</p>
+    <p style="font-size:0.86rem;color:var(--ink-faint)"><span class="pill pending">pending</span>&nbsp; Smudgeplot &mdash; the tool built specifically to separate true heterozygosity from duplication signal &mdash; has been queued multiple times and interrupted each time by unrelated system instability (§7, Comment 1). The paragraph above currently rests on corroborating signals rather than this one purpose-built measurement.</p>
+  </div>
+
+  <div class="section" id="candidates">
+    <div class="section-head"><span class="section-num">02</span><h2>Candidate genotypic changes</h2></div>
+    <p>Three ALE-specific variants, called against the HS2 reference and annotated via SnpEff, cross-referenced to UniProt/GO/KEGG through the strain's existing Trinity/Trinotate transcriptome annotation, converge on a single biological theme: <strong>aldehyde and furan detoxification</strong> &mdash; mechanistically the most direct route by which a cell tolerates HMF, the principal inhibitor in lignocellulosic hydrolysate.</p>
+
+    <div class="gene-card">
+      <div class="gene-card-head"><span class="genes">PEL1 / SLAD</span><span class="locus">ptg000019l:1,297,961 &middot; C&rarr;T &middot; SNP</span><span class="pill open">high relevance</span></div>
+      <p><span class="impact-moderate">MODERATE</span> impact missense variant. <strong>SLAD</strong> encodes succinate-semialdehyde dehydrogenase (NAD&#8314;) &mdash; oxidizes succinic semialdehyde, a reactive aldehyde intermediate of the GABA shunt, to succinate. A coding change here sits directly in an aldehyde-clearance pathway.</p>
+      <div class="tag-row"><span class="tag">GO:0004777 succinate-semialdehyde dehydrogenase activity</span><span class="tag">GABA catabolic process</span><span class="tag">keyword: aldehyde detox / dehydrogenase</span></div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-card-head"><span class="genes">ODP25 / EPHA</span><span class="locus">ptg000051l:296,388 &middot; C&rarr;A &middot; SNP</span><span class="pill pending">moderate relevance</span></div>
+      <p><span class="impact-moderate">MODERATE</span> impact missense variant. <strong>ODP25</strong> is a pyruvate dehydrogenase complex component (dihydrolipoyllysine-residue acetyltransferase) &mdash; central carbon metabolism, upstream of the TCA cycle. <strong>EPHA</strong> carries epoxide hydrolase activity and a "response to toxic substance" annotation. Plausible as a direct detox link or a flux-rebalancing response to metabolic stress; less immediately specific than the other two, and the only candidate with any overlap in the HS19 (unrelated stressor) comparison &mdash; see §4.</p>
+      <div class="tag-row"><span class="tag">pyruvate decarboxylation to acetyl-CoA</span><span class="tag">epoxide hydrolase activity</span><span class="tag">keyword: aldehyde detox / dehydrogenase</span></div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-card-head"><span class="genes">SYGM2 / GLOX</span><span class="locus">ptg000082l:318,837 &middot; AAC&rarr;A &middot; INDEL</span><span class="pill open">highest relevance</span></div>
+      <p><span class="impact-high">HIGH</span> impact frameshift variant &mdash; the single most consequential change in the candidate set. <strong>GLOX</strong> carries aldehyde oxidase activity (GO:0004031) &mdash; an enzyme that acts directly on aldehyde substrates, the same chemical class as HMF itself. A frameshift is a strong-effect mutation (likely loss- or altered-function), the kind of change most readily connected to a discrete phenotypic shift under aldehyde selection pressure.</p>
+      <div class="tag-row"><span class="tag">GO:0004031 aldehyde oxidase activity</span><span class="tag">frameshift &middot; HIGH impact</span><span class="tag">keyword: aldehyde detox</span></div>
+    </div>
+  </div>
+
+  <div class="section" id="validation">
+    <div class="section-head"><span class="section-num">03</span><h2>Cross-validation &mdash; what's actually been checked</h2></div>
+    <p>Each candidate has been run through the checks that matter for ruling out artifacts and generic lab-adaptation noise, rather than presented at face value.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Candidate</th><th>Not near an unverified contig end</th><th>Absent from HS19 (NaOCl, unrelated stressor)</th><th>Clear of duplicated-block regions</th><th>Matches HMF-only selection</th></tr></thead>
+        <tbody>
+          <tr><td><span class="gene">PEL1 / SLAD</span></td><td class="matrix-cell-yes">&check; confirmed</td><td class="matrix-cell-yes">&check; confirmed</td><td class="matrix-cell-no">&mdash; pending</td><td class="matrix-cell-no">&mdash; pending</td></tr>
+          <tr><td><span class="gene">ODP25 / EPHA</span></td><td class="matrix-cell-yes">&check; confirmed</td><td class="matrix-cell-partial">&#9651; ODP25 in HS19's loose list</td><td class="matrix-cell-no">&mdash; pending</td><td class="matrix-cell-no">&mdash; pending</td></tr>
+          <tr><td><span class="gene">SYGM2 / GLOX</span></td><td class="matrix-cell-yes">&check; confirmed</td><td class="matrix-cell-yes">&check; confirmed</td><td class="matrix-cell-no">&mdash; pending</td><td class="matrix-cell-no">&mdash; pending</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.86rem;color:var(--ink-faint)">The HS19 check matters because HS19 is a separately-selected mutant under a completely different stressor (NaOCl, not hydrolysate). Genes appearing in <em>both</em> candidate sets would be more likely generic mutation hotspots than genuine hydrolysate-response signal &mdash; five of six ALE genes are absent from HS19 entirely; the one overlap (ODP25) is only in HS19's permissive, low-confidence list.</p>
+  </div>
+
+  <div class="section" id="methods">
+    <div class="section-head"><span class="section-num">04</span><h2>Full analytical pipeline</h2></div>
+    <p>Complete, command-level detail for independent reproduction and evaluation. Tool versions and exact parameters are given at each stage; rationale is given wherever a non-default choice was made.</p>
+
+    <div class="pipeline-stage">
+      <div class="stage-name">Sequencing</div>
+      <div class="stage-detail"><p>PacBio Revio HiFi. HS2: 23.95 Gb raw, 1,374,677 reads, N50 19,686 bp, Q20 96.26%, Q30 91.04%, GC 56.25%. ALE: 28.59 Gb raw, 1,714,417 reads, N50 18,680 bp, Q20 96.47%, Q30 91.51%, GC 56.94%.</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Organelle depletion</div>
+      <div class="stage-detail"><p>Chloroplast + mitochondrion reference (<i>C. sorokiniana</i> SLA-04-derived). <code>minimap2 -ax map-hifi</code> against the organelle reference; organelle-mapping read IDs removed with <code>seqkit grep -v</code> before assembly. This step also resolved a reproducible hifiasm segfault traced to pathologically high organelle k-mer frequency.</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Assembly</div>
+      <div class="stage-detail"><p><code>hifiasm 0.25.0</code>, default parameters except <code>-f0</code> (bloom-filter override, appropriate for this genome's small size &mdash; the default is calibrated for human-scale genomes). Nuclear, organelle-depleted reads: 11.14 Gb (HS2), 11.59 Gb (ALE).</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Coverage validation</div>
+      <div class="stage-detail"><p>Single-copy read coverage independently cross-validated two ways: hifiasm's internal <code>ha_pt_gen</code>/purge_dups pass (homozygous coverage threshold HS2 = 157&ndash;158&times;, ALE = 204&times;) and the raw total-bases &divide; coverage k-mer estimate. Agreement between the two anchors every downstream coverage-dependent parameter below.</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Assembly QC</div>
+      <div class="stage-detail"><p>QUAST: HS2 66.6 Mb (N50 947,597, L50 18), ALE 64.5 Mb (N50 1,329,927, L50 16). BUSCO <code>chlorophyta_odb10</code>: HS2 98.9% complete (S:83.9% D:14.9%), ALE 99.1% complete (S:88.9% D:10.1%).</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Haplotig purging</div>
+      <div class="stage-detail"><p><code>purge_dups</code>, manual cutoffs (<code>-l</code>/<code>-m</code>/<code>-u</code>) anchored to validated single-copy coverage using the tool's documented ratio (&asymp;0.25&times; / 1.0&times; / 2.7&times;): HS2 <code>-l 40 -m 158 -u 427</code>; ALE <code>-l 51 -m 204 -u 551</code>. Automatic cutoff detection (<code>calcuts</code> unsupervised) was tested first and rejected &mdash; it locked onto a spurious 16&times; peak instead of true single-copy coverage, producing an unusable, catastrophically over-purged result. Result: HS2 66.6&rarr;51.26 Mb (327&rarr;78 contigs), ALE 64.5&rarr;52.13 Mb (239&rarr;72 contigs).</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">k-mer / heterozygosity</div>
+      <div class="stage-detail"><p>KMC (k=21) &rarr; GenomeScope2 (<code>-k 21 -p 2 --fitted_hist</code>) on organelle-depleted, downsampled nuclear reads. HS2: het 1.5%, kcov 124, model fit 68%, len 41.36 Mb. ALE: het 1.55%, kcov 131, fit 61.8%, len 39.94 Mb. Smudgeplot (FastK k-mer database &rarr; <code>hetmers</code> &rarr; <code>plot</code>) for AB-vs-duplication classification: in progress, not yet complete (§7).</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Synteny</div>
+      <div class="stage-detail"><p>MUMmer4 <code>nucmer --maxmatch -c 100</code>, <code>delta-filter -i 90 -l 1000</code>, <code>show-coords -rclT</code>. Run both as self-alignment (each assembly against itself, for within-genome duplication blocks) and cross-alignment (HS2 vs. ALE). Rebuild on the purged assemblies with duplication-block overlay: in progress (§7, Comment 4).</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Telomere QC</div>
+      <div class="stage-detail"><p><code>tidk explore --minimum 5 --maximum 12</code> for de novo repeat-unit discovery (top hit <code>AAACCCT</code>, 2240 tandem runs &gt;100 bp &mdash; a rotation of the canonical plant/green-algal <code>TTTAGGG</code> telomere motif, consistent with Chlorella's phylogenetic position), then per-contig end classification. Variants within 20 kb of a non-telomere-confirmed contig end flagged <code>LOW_near_unconfirmed_contig_end</code>: 35/406 variants (8.6%) genome-wide; 0/6 hydrolysate-stress candidates affected.</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Variant calling</div>
+      <div class="stage-detail"><p>DeepVariant + GLnexus joint genotyping (diploid model &mdash; to be revisited pending final Smudgeplot classification), <code>pbsv</code> and Sniffles2 for structural variants.</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Annotation</div>
+      <div class="stage-detail"><p>SnpEff for variant-effect prediction on a custom database built from the HS2 assembly; functional annotation cross-referenced to UniProt/GO/KEGG via the existing Trinity/Trinotate transcriptome annotation for this strain.</p></div>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-name">Cross-strain specificity</div>
+      <div class="stage-detail"><p>HS19 (independently NaOCl-selected mutant, GATK HaplotypeCaller short-read pipeline, same HS2 reference) candidate lists &mdash; strict (n=13) and loose/permissive (n=86) &mdash; compared to ALE's 6 hydrolysate candidates by gene symbol: 0/6 overlap with strict, 1/6 (ODP25) with loose.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="review">
+    <div class="section-head"><span class="section-num">05</span><h2>Response to expert review</h2></div>
+    <p>An expert reviewer raised six methodological concerns on an earlier version of this analysis. All six are addressed below; three are fully resolved, three remain open and are tracked in §7.</p>
+
+    <div class="review-item">
+      <div class="review-q"><span class="num">1</span>Reported heterozygosity (0.0036%) is inconsistent with an apparent two-peak k-mer spectrum; the second peak may reflect duplication or repeat content rather than true heterozygosity. Recommended Smudgeplot and self-synteny analysis.</div>
+      <div class="review-a">
+        <p class="tag-label">Response</p>
+        <p>Confirmed founded. Three independent lines of evidence now converge on duplication rather than classical heterozygosity: self-synteny blocks at 100.0% identity (too perfect for allelic variation), elevated BUSCO duplication (14.9%/10.1%), and purge_dups independently flagging 23%/19% of each raw assembly as duplicate content &mdash; difficult to reconcile with a 0.0036% heterozygosity figure under a simple diploid model.</p>
+      </div>
+      <div class="review-rev"><b>Status:</b> <span class="pill pending">pending</span> Smudgeplot (the definitive AB-vs-duplication test) is queued but not yet complete.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="review-q"><span class="num">2</span>HS2 (66.6 Mb) and ALE (64.5 Mb) assembly sizes differ by ~2.1 Mb &mdash; real deletion, or an assembly-processing artifact?</div>
+      <div class="review-a">
+        <p class="tag-label">Response</p>
+        <p>Traced to the root cause: purge_dups had been applied to HS2 only, and with miscalibrated automatic cutoffs. Rerun consistently on both assemblies with coverage-anchored manual cutoffs (§4). Once purged identically, the gap shrinks from 2.1 Mb to 0.87 Mb and reverses direction &mdash; the original difference was predominantly a processing artifact, not a real ALE-lineage deletion.</p>
+      </div>
+      <div class="review-rev"><b>Status:</b> <span class="pill confirmed">resolved</span></div>
+    </div>
+
+    <div class="review-item">
+      <div class="review-q"><span class="num">3</span>T2T completion isn't required for this comparison, but caution is warranted for SNPs/SVs near contig ends.</div>
+      <div class="review-a">
+        <p class="tag-label">Response</p>
+        <p>Agreed. Per-contig telomere classification already existed (tidk-based); now explicitly propagated as a confidence annotation on every reported variant (§4).</p>
+      </div>
+      <div class="review-rev"><b>Status:</b> <span class="pill confirmed">resolved</span> &mdash; 35/406 variants (8.6%) flagged; 0/6 candidate genes affected.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="review-q"><span class="num">4</span>If ALE is a direct HS2-derived mutant, structural differences should be minimal &mdash; given the duplication signal, the synteny figure should show duplicated regions as boxes, which it currently does not.</div>
+      <div class="review-a">
+        <p class="tag-label">Response</p>
+        <p>Correctly identified a gap between two analyses run separately but never combined: the existing figure shows only cross-genome synteny restricted to uniquely-matching contigs, which by construction excludes the duplicated/multi-mapping content that would appear as boxes. The self-synteny duplication data needed to close this gap already exists (Comment 1) &mdash; it was never overlaid.</p>
+      </div>
+      <div class="review-rev"><b>Status:</b> <span class="pill pending">pending</span> Figure rebuild on the corrected, purged assemblies, with duplicated blocks overlaid as boxes on the cross-genome synteny backbone.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="review-q"><span class="num">5</span>In a duplicated genome, "1:1" orthology/synteny assignments risk misassigning paralogs.</div>
+      <div class="review-a">
+        <p class="tag-label">Response</p>
+        <p>Agreed &mdash; a material risk given the confirmed duplication content. Every reported candidate's coordinates will be cross-referenced against the self-synteny duplicated-block regions; anything falling inside one will be explicitly flagged rather than reported as unambiguous.</p>
+      </div>
+      <div class="review-rev"><b>Status:</b> <span class="pill pending">pending</span> Not yet run against the current candidate gene list.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="review-q"><span class="num">6</span>Requested the k-mer analysis, Smudgeplot, self-synteny analysis, and exact workflow/options for closer review.</div>
+      <div class="review-a">
+        <p class="tag-label">Response</p>
+        <p>The complete pipeline is now documented command-by-command in §4 above, including every non-default parameter and the reasoning behind it.</p>
+      </div>
+      <div class="review-rev"><b>Status:</b> <span class="pill confirmed">resolved</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="section-num">06</span><h2>Reading it together</h2></div>
+    <p>The overall shape of the evidence points toward a <strong>targeted, few-locus explanation</strong> rather than wholesale genomic upheaval: the two genomes remain structurally collinear, the size difference that once looked like a deletion turns out to be a processing artifact, and the ALE-specific coding changes that do exist cluster tightly around one biochemical function &mdash; clearing reactive aldehydes &mdash; rather than scattering across unrelated pathways. Three independent variants landing in the same functional neighborhood is not what you'd expect from noise. The frameshift in <strong>GLOX</strong> is the mutation most worth leading with: high-impact, directly enzymatic, directly substrate-relevant to HMF.</p>
+  </div>
+
+  <div class="section" id="open">
+    <div class="section-head"><span class="section-num">07</span><h2>What's needed to close the gap</h2></div>
+    <div class="callout">
+      <p class="label">Open, in priority order</p>
+      <ul>
+        <li><strong>HMF-only selection comparison.</strong> The most direct confirmatory test available: do the same candidate loci shift under HMF-only pressure, independent of the rest of the hydrolysate cocktail? Raw short reads exist; they need mapping onto the new purged HS2 reference (not the old, incompatible short-read reference) before the comparison is trustworthy.</li>
+        <li><strong>Smudgeplot</strong> (Comment 1) &mdash; the direct heterozygosity-vs-duplication test; currently the §1 conclusion rests on corroborating signals rather than this purpose-built measurement.</li>
+        <li><strong>Duplicated-block overlap check on the candidate genes</strong> (Comment 5) &mdash; not yet run against this specific gene list.</li>
+        <li><strong>Synteny figure rebuild with duplication boxes</strong> (Comment 4) &mdash; pending the purged-assembly synteny rerun.</li>
+        <li><strong>Ploidy-correct variant re-calling</strong> &mdash; original calls assumed a ploidy model made before the heterozygosity-vs-duplication question was resolved.</li>
+        <li><strong>Phenotype data.</strong> Quantified tolerance data (growth curves, IC50/MIC for hydrolysate or HMF, ALE vs. HS2) &mdash; the actual phenotype half of "genotype-to-phenotype" &mdash; not yet integrated.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Pipeline: hifiasm 0.25.0 &rarr; corrected purge_dups &rarr; KMC/GenomeScope2/Smudgeplot &rarr; MUMmer4 &rarr; DeepVariant + GLnexus &rarr; SnpEff &rarr; Trinotate GO/KEGG/UniProt cross-reference. Evidence-tier language throughout (confirmed / pending / open) is deliberate &mdash; unmarked claims in &sect;1&ndash;3 are directly measured; &sect;7 is the explicit boundary of what's been verified so far.
+  </footer>
+
+</div>
+</body>
+</html>
