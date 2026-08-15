@@ -423,9 +423,9 @@ Full candidate table &mdash; 30 unconditionally-passing candidates plus 146 with
       <div class="review-q"><span class="num">3</span>T2T completion isn't required for this comparison, but caution is warranted for SNPs/SVs near contig ends.</div>
       <div class="review-a">
         <p class="tag-label">Response</p>
-        <p>Agreed. Per-contig telomere classification already existed (tidk-based); now explicitly propagated as a confidence annotation on every reported variant (§4).</p>
+        <p>Agreed. Per-contig telomere classification (tidk-based) is propagated as a confidence annotation on every reported variant. <strong>This figure was found stale during a later audit and has been recomputed</strong> against the corrected purged_v2 assembly and the current 30-candidate funnel output (the original "35/406, 0/6" numbers had been computed against the pre-correction raw assembly and an earlier, smaller 6-candidate list, and were never updated when the funnel was rebuilt). Of the current 78 HS2 contigs, none have a confirmed telomere signal at both ends (24 single-end, 54 neither) &mdash; stated plainly rather than glossed over, as expected for a draft, non-T2T assembly. Of the 30 sure candidates, 4 (all unnamed, intergenic) sit within 20kb of an unconfirmed contig end; <strong>0 of the 9 named candidates discussed by name anywhere in this report are affected</strong>, so the qualitative conclusion is unchanged, but the previously-cited numbers were wrong and have been corrected rather than left standing.</p>
       </div>
-      <div class="review-rev"><b>Status:</b> <span class="pill confirmed">resolved</span> &mdash; 35/406 variants (8.6%) flagged; 0/6 candidate genes affected.</div>
+      <div class="review-rev"><b>Status:</b> <span class="pill confirmed">resolved</span> &mdash; corrected: 4/30 sure candidates flagged (0/9 named); 49/176 core-funnel candidates flagged (27.8%).</div>
     </div>
 
     <div class="review-item">
