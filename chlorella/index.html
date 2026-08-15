@@ -265,6 +265,7 @@ footer{ padding:44px 0 60px; }
       <a href="#timeline">Timeline</a>
       <a href="#genes">Candidates</a>
       <a href="#rigor">Rigor</a>
+      <a href="#convergence">HS19 &amp; HMF</a>
       <a href="../report8.html" class="cta">Full report →</a>
     </div>
   </div>
@@ -499,7 +500,23 @@ footer{ padding:44px 0 60px; }
     <div class="section-tag">06 — Convergent evolution</div>
     <div class="section-head reveal">
       <h2>Two other lineages, evolved under different stress</h2>
-      <p>Two independently-derived mutant lines from the same HS2 background — HS19 (sodium hypochlorite selection) and HMF (selection against 5-hydroxymethylfurfural alone) — give a chance to ask whether unrelated selective pressures converge on the same biology. An initial single-caller comparison found three exact-position matches; none survived re-calling with the same rigor applied everywhere else in this project, and were retracted as convergence evidence rather than kept for a good headline.</p>
+      <p>HS2 is the shared ancestor of three independently-selected lines, not just ALE. <strong style="color:var(--accent-hs2)">HS19</strong> was selected under sodium hypochlorite (oxidative-chlorine) stress; <strong style="color:var(--accent-ale)">HMF</strong> was selected against 5-hydroxymethylfurfural alone — the specific furanic sub-component of ALE's full hydrolysate cocktail. Comparing all three asks whether unrelated selective pressures converge on the same biology. An initial single-caller comparison found three exact-position matches; none survived re-calling with the same rigor applied everywhere else in this project, and were retracted as convergence evidence rather than kept for a good headline.</p>
+    </div>
+
+    <div class="exp-grid reveal" style="margin-bottom:8px;">
+      <div class="strain-card hs2">
+        <div class="role">Independent line · Illumina short-read</div>
+        <h3 style="font-size:19px;">HS19</h3>
+        <p>Selected under NaOCl (oxidative-chlorine) stress — a different chemistry entirely from hydrolysate. Re-called with the same GATK + repeat-artifact funnel used for ALE.</p>
+        <p style="margin-top:14px;"><a href="../report7.html" class="btn btn-ghost" style="padding:8px 14px; font-size:13px;">Full HS19 report →</a></p>
+      </div>
+      <div class="exp-arrow" style="visibility:hidden;">·</div>
+      <div class="strain-card ale">
+        <div class="role">Independent line · Illumina short-read, 2 timepoints</div>
+        <h3 style="font-size:19px;">HMF</h3>
+        <p>Selected against 5-hydroxymethylfurfural alone — isolating one specific stressor out of ALE's full hydrolysate mixture. Same corrected reference, same funnel.</p>
+        <p style="margin-top:14px;"><a href="../report8.html#strains" class="btn btn-ghost" style="padding:8px 14px; font-size:13px;">Full HS19 + HMF convergence analysis →</a></p>
+      </div>
     </div>
 
     <div class="converge-hits reveal">
