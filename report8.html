@@ -507,6 +507,111 @@ Full candidate table &mdash; 30 unconditionally-passing candidates plus 146 with
     </div>
   </div>
 
+
+  <div class="section" id="sanger">
+    <div class="section-head"><span class="section-num">12</span><h2>Sanger confirmation primers &mdash; named candidates</h2></div>
+    <p>PCR/Sanger primer pairs were designed in silico (Primer3, <code>chlamy_rnaseq</code> conda env) for the 9 named candidate genes discussed throughout this report, using the &plusmn;300bp flanking sequence around each variant on the corrected <code>purged_v2</code> assembly as template. Where a candidate's flank carried a period-1&ndash;4bp tandem repeat run &ge;20bp (the same slippage-risk threshold used for the primer-design reference for all 30 sure candidates), that span was explicitly excluded from primer placement so neither primer sits on a repeat &mdash; this changed the picked primer for UBP12, EPHA, TLP13, SCP46 and CLPB3 relative to naive design. These are computationally designed primers, not yet wet-lab validated; standard Tm/GC/product-size constraints (Tm 57&ndash;64&deg;C, product 300&ndash;550bp, GC-clamped 3&prime; end) were applied uniformly.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Gene</th><th>Position (purged_v2)</th><th>Category</th><th>REF&rarr;ALT</th><th>Forward primer</th><th>Reverse primer</th><th>Product</th><th>Repeat risk</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="gene">UBP12</span></td>
+            <td><span class="locus">ptg000005l:764831</span></td>
+            <td>ALE-specific (novel)</td>
+            <td><code>A&rarr;C</code></td>
+            <td><code>TGCTCCCTCTTCTTCTTTTCCC</code> (Tm 60.0&deg;C)</td>
+            <td><code>CTTGACCTTTGAGTCCTTTGGC</code> (Tm 59.7&deg;C)</td>
+            <td>443 bp</td>
+            <td>avoided (repeat-masked)</td>
+          </tr>
+          <tr>
+            <td><span class="gene">ACOX4</span></td>
+            <td><span class="locus">ptg000006l:711536</span></td>
+            <td>ALE-specific (novel)</td>
+            <td><code>C&rarr;A</code></td>
+            <td><code>CCTTGTTCGTGTCGCCAAAG</code> (Tm 60.0&deg;C)</td>
+            <td><code>CAGCGCCAAGAAAATGGAAAAC</code> (Tm 59.5&deg;C)</td>
+            <td>420 bp</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td><span class="gene">EPHA</span></td>
+            <td><span class="locus">ptg000051l:296388</span></td>
+            <td>ALE-specific (novel)</td>
+            <td><code>C&rarr;A</code></td>
+            <td><code>AGAGGGCTACACAATTAGCAGG</code> (Tm 59.8&deg;C)</td>
+            <td><code>TGTATGCGTGTGTGTATGTGTG</code> (Tm 59.3&deg;C)</td>
+            <td>305 bp</td>
+            <td>avoided (repeat-masked)</td>
+          </tr>
+          <tr>
+            <td><span class="gene">MASY</span></td>
+            <td><span class="locus">ptg000014l:1366657</span></td>
+            <td>shifted AF</td>
+            <td><code>A&rarr;G</code></td>
+            <td><code>CACCTTGCGTGTTAAAAGGGG</code> (Tm 60.0&deg;C)</td>
+            <td><code>CAGTCTGTGAAGTAGCGTCACC</code> (Tm 60.9&deg;C)</td>
+            <td>343 bp</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td><span class="gene">TLP13</span></td>
+            <td><span class="locus">ptg000012l:3118063</span></td>
+            <td>shifted AF</td>
+            <td><code>T&rarr;G</code></td>
+            <td><code>GTGATGGAGGCGGAAGAGATG</code> (Tm 60.5&deg;C)</td>
+            <td><code>GAGATCCAGGCTGGCAAGTC</code> (Tm 60.5&deg;C)</td>
+            <td>522 bp</td>
+            <td>avoided (repeat-masked)</td>
+          </tr>
+          <tr>
+            <td><span class="gene">CLCN7</span></td>
+            <td><span class="locus">ptg000010l:888172</span></td>
+            <td>shifted AF</td>
+            <td><code>T&rarr;C</code></td>
+            <td><code>ATCGAATGATAGGGAGGCAAGG</code> (Tm 59.7&deg;C)</td>
+            <td><code>CAAGGACATCATCTCAGGCGG</code> (Tm 60.8&deg;C)</td>
+            <td>464 bp</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td><span class="gene">SCP46</span></td>
+            <td><span class="locus">ptg000019l:859524</span></td>
+            <td>shifted AF</td>
+            <td><code>T&rarr;G</code></td>
+            <td><code>CCAGTCCAAACATGTTGAGCTG</code> (Tm 60.0&deg;C)</td>
+            <td><code>CTGTTTCAGCATCAGGATGTGG</code> (Tm 59.6&deg;C)</td>
+            <td>399 bp</td>
+            <td>avoided (repeat-masked)</td>
+          </tr>
+          <tr>
+            <td><span class="gene">RIMO</span></td>
+            <td><span class="locus">ptg000018l:2555061</span></td>
+            <td>shifted AF</td>
+            <td><code>A&rarr;C</code></td>
+            <td><code>ACCGAGGATGGCGAGATCTAC</code> (Tm 61.2&deg;C)</td>
+            <td><code>CTCGAGGTCAAAGATGGAGGTG</code> (Tm 60.4&deg;C)</td>
+            <td>415 bp</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td><span class="gene">CLPB3</span></td>
+            <td><span class="locus">ptg000007l:1269122</span></td>
+            <td>shifted AF</td>
+            <td><code>A&rarr;C</code></td>
+            <td><code>CAGACGCTGCTACCCTACAG</code> (Tm 59.9&deg;C)</td>
+            <td><code>GTCCCCTCTACCTTCCCCATC</code> (Tm 61.0&deg;C)</td>
+            <td>322 bp</td>
+            <td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.86rem;color:var(--ink-faint)">"Category" follows the same short-read allele-fraction trajectory classification used throughout: ALE-specific (novel) = absent/near-zero in HS2, present only in ALE; shifted AF = present in both but at a materially different frequency. Full &plusmn;300bp REF and reconstructed-ALT flanking sequences for all 30 sure candidates (named and unnamed) are maintained alongside the pipeline outputs for whichever subset a wet-lab confirmation round targets next.</p>
+  </div>
+
   <footer>
     Pipeline: hifiasm 0.25.0 &rarr; corrected purge_dups &rarr; FastK/Smudgeplot &rarr; MUMmer4 &rarr; bcftools + GATK (cross-validated, both reference directions) &rarr; pbsv + Sniffles2 &rarr; GMAP (quality-gated) + UniProt BLASTX best-hit &rarr; UniProt REST batch GO/KEGG cross-reference &rarr; short-read temporal validation (3 timepoints) &rarr; HS19/HMF comparative screen. Evidence-tier language throughout (confirmed / pending / retracted) is deliberate &mdash; unmarked claims in &sect;1&ndash;5 are directly measured and cross-validated; &sect;9 is the explicit boundary of what's been verified so far.
   </footer>
